@@ -15,7 +15,6 @@ Feature/improvement suggestions are welcome and I will add them when I have time
 If you like the tracker, feel free to donate:
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/sleeplessghost)
-<a href="bitcoin:1Q2Z6A7un9dSX37JAs29Bhiu7CFMCNN7VA"><img border="0" alt="W3Schools" src="https://img.shields.io/badge/Donate-Bitcoin-green.svg"></a>
 
 Bitcoin address: *1Q2Z6A7un9dSX37JAs29Bhiu7CFMCNN7VA*
 
