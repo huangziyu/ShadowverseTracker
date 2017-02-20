@@ -1,0 +1,8 @@
+*.suo
+*.user
+*.pfx
+IconChanger/bin/
+IconChanger/obj/
+ShadowverseTracker/bin/
+ShadowverseTracker/obj/
+*.db
