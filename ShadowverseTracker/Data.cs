@@ -133,29 +133,17 @@ namespace ShadowverseTracker
         {
             try
             {
-                List<Game> allGames = mDataBase.games;
                 List<Game> matchingGames = new List<Game>();
-
-                foreach (Game game in allGames)
+                foreach (Game game in mDataBase.games)
                 {
-                    if (playerCraft == Craft.All || game.playerCraft == playerCraft)
+                    if ((playerCraft == Craft.All || game.playerCraft == playerCraft)
+                        && (opponentCraft == Craft.All || game.opponentCraft == opponentCraft)
+                        && (playerDeck == null || game.playerDeckID == playerDeck.id)
+                        && (opponentDeck == null || game.opponentDeckID == opponentDeck.id)
+                        && (mode == Mode.All || game.mode == mode)
+                        && (turn == Turn.All || ((turn == Turn.First) == game.first)))
                     {
-                        if (opponentCraft == Craft.All || game.opponentCraft == opponentCraft)
-                        {
-                            if (playerDeck == null || game.playerDeckID == playerDeck.id)
-                            {
-                                if (opponentDeck == null || game.opponentDeckID == opponentDeck.id)
-                                {
-                                    if (mode == Mode.All || game.mode == mode)
-                                    {
-                                        if (turn == Turn.All || ((turn == Turn.First) == game.first))
-                                        {
-                                            matchingGames.Add(game);
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        matchingGames.Add(game);
                     }
                 }
 
