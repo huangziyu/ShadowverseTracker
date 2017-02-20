@@ -58,6 +58,8 @@ Filtering options:
 * Game mode (ranked/unranked/take two) using the dropdown list in ```Filter``` panel.
 * Turn (first/second) using the dropdown list in ```Filter``` panel.
 
+To clear the saved games, delete ```storeddata.xml``` file then relaunch ```ShadowverseTracker.exe```.
+
 #### Icon Changer
 
 ![Screenshot of Icon Changer](https://cloud.githubusercontent.com/assets/25903992/23140089/956e1962-f7ff-11e6-979d-5c0e45676c7d.jpg)
