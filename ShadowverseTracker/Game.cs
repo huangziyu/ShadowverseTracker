@@ -16,6 +16,7 @@ namespace ShadowverseTracker
         private bool mWon;
         private int mNumTurns = 0;
         private string mNotes = "";
+        private long mID = -1;
 
         public Game()
         {
@@ -140,6 +141,18 @@ namespace ShadowverseTracker
             set
             {
                 mNotes = value;
+            }
+        }
+
+        public long id
+        {
+            get
+            {
+                return mID;
+            }
+            set
+            {
+                mID = value;
             }
         }
     }

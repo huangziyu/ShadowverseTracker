@@ -22,7 +22,7 @@ namespace ShadowverseTracker
         {
             if (!File.Exists(DATAFILE))
             {
-                Console.WriteLine("stored data does not exist");
+                Console.WriteLine(DATAFILE + " does not exist");
                 mDataBase = new DataBase();
                 addDeck(Craft.Forest, "Unknown");
                 addDeck(Craft.Sword, "Unknown");
@@ -48,6 +48,36 @@ namespace ShadowverseTracker
                     mDataBase = new DataBase();
                 }
             }
+            rebuildIndexes();
+        }
+
+        public void rebuildIndexes()
+        {
+            //fix indexes of games (to allow porting old data to new version)
+            Game game;
+            Game rebuilt;
+            int count = 0;
+            for (int i = 0; i < mDataBase.games.Count; i++)
+            {
+                game = mDataBase.games[i];
+                if (game.id < 0)
+                {
+                    //remove and insert fixed game at end
+                    mDataBase.games.RemoveAt(i);
+                    rebuilt = new Game(game.playerCraft, game.opponentCraft, getDeckByID(game.playerDeckID), getDeckByID(game.opponentDeckID), game.first, game.mode, game.won, game.turns, game.notes);
+
+                    long id;
+                    if (mDataBase.games.Count <= 0) id = 0;
+                    else id = mDataBase.games.Last().id + 1;
+
+                    game.id = id;
+                    mDataBase.games.Add(rebuilt);
+                    count++;
+                    i--;
+                }
+            }
+            Console.WriteLine("Rebuilt indexes for " + count + " games");
+            saveData();
         }
 
         public void exportCSV()
@@ -120,8 +150,12 @@ namespace ShadowverseTracker
         public void addDeck(Craft craft, string name)
         {
             Deck deck = new Deck(craft, name);
-            int id = mDataBase.decks.Count;
-            deck.setID(id);
+
+            int id;
+            if (mDataBase.decks.Count <= 0) id = 0;
+            else id = mDataBase.decks.Last().id + 1;
+
+            deck.id = id;
             mDataBase.decks.Add(deck);
             saveData();
         }
@@ -129,7 +163,27 @@ namespace ShadowverseTracker
         public void addGame(Craft playerCraft, Craft opponentCraft, Deck playerDeck, Deck opponentDeck, bool first, Mode mode, bool won, int numTurns, string notes)
         {
             Game game = new Game(playerCraft, opponentCraft, playerDeck, opponentDeck, first, mode, won, numTurns, notes);
+
+            long id;
+            if (mDataBase.games.Count <= 0) id = 0;
+            else id = mDataBase.games.Last().id + 1;
+
+            game.id = id;
             mDataBase.games.Add(game);
+            saveData();
+        }
+
+        public void deleteGame(long gameID)
+        {
+            Console.WriteLine("remove gameid " + gameID);
+            for (int i = mDataBase.games.Count - 1; i >= 0; i--) //--i
+            {
+                if (mDataBase.games[i].id == gameID)
+                {
+                    mDataBase.games.RemoveAt(i);
+                    break;
+                }
+            }
             saveData();
         }
 

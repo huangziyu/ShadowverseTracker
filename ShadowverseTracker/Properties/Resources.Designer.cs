@@ -88,6 +88,20 @@ namespace ShadowverseTracker.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap btn_delete {
+            get {
+                object obj = ResourceManager.GetObject("btn_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btn_delete_disabled {
+            get {
+                object obj = ResourceManager.GetObject("btn_delete_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap btn_dragon {
             get {
                 object obj = ResourceManager.GetObject("btn_dragon", resourceCulture);

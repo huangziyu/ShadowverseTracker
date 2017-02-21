@@ -134,6 +134,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="res\btn_delete_disabled.png" />
     <Content Include="res\buttons\btn_all.png" />
     <Content Include="res\buttons\btn_all_sel.png" />
     <Content Include="res\buttons\btn_blood.png" />
@@ -150,6 +151,7 @@
     <Content Include="res\buttons\btn_shadow_sel.png" />
     <Content Include="res\buttons\btn_sword.png" />
     <Content Include="res\buttons\btn_sword_sel.png" />
+    <Content Include="res\btn_delete.png" />
     <Content Include="res\ic_vampy5.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

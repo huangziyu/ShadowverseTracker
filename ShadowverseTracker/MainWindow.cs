@@ -100,6 +100,7 @@ namespace ShadowverseTracker
             addGameButton.Click += new EventHandler(addGameButtonClick);
             addGamePlayerCraftList.SelectedIndexChanged += new EventHandler(addGameCraftPlayerChanged);
             addGameOpponentCraftList.SelectedIndexChanged += new EventHandler(addGameCraftOpponentChanged);
+            prevGamesDataGrid.CellClick += new DataGridViewCellEventHandler(deckDataGrid_CellClick);
             customColours();
             setup();
         }
@@ -352,9 +353,13 @@ namespace ShadowverseTracker
                                        (curGame.first ? "First" : "Second") + (curGame.turns == 0 ? "" : " ("+curGame.turns+"}"),
                                        curGame.won ? "Won" : "Lost" };
                     prevGamesDataGrid.Rows.Add(row);
-                    if (curGame.notes != null && curGame.notes.Length > 0)
+                    foreach (DataGridViewCell cell in prevGamesDataGrid.Rows[i].Cells)
                     {
-                        foreach (DataGridViewCell cell in prevGamesDataGrid.Rows[i].Cells)
+                        if (cell is DataGridViewImageCell)
+                        {
+                            cell.Value = curGame.id < 0 ? Properties.Resources.btn_delete_disabled : Properties.Resources.btn_delete;
+                        }
+                        else if (curGame.notes != null && curGame.notes.Length > 0)
                         {
                             cell.ToolTipText = "Note: " + curGame.notes;
                         }
@@ -533,6 +538,34 @@ namespace ShadowverseTracker
                 mGameFirstSelected = false;
             }
             updateTurnButtons();
+        }
+
+        void deckDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
+            {
+                int row = e.RowIndex;
+                if (row < mCurrentGameList.Length)
+                {
+                    Game game = mCurrentGameList[mCurrentGameList.Length - row - 1];
+                    if (game.id < 0)
+                    {
+                        Console.WriteLine("Can't safely delete games with index -1");
+                        MessageBox.Show("Sorry, can't safely delete this game as it was not indexed properly.");
+                    }
+                    else
+                    {
+                        mData.deleteGame(game.id);
+                        updateGames();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Could not remove game in row " + row);
+                    MessageBox.Show("Could not remove game.");
+                }
+            }
         }
 
         private void updateTurnButtons()

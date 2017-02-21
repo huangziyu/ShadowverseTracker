@@ -22,11 +22,6 @@ namespace ShadowverseTracker
             this.mName = name;
         }
 
-        public void setID(int id)
-        {
-            this.mID = id;
-        }
-
         public Craft craft
         {
             get
