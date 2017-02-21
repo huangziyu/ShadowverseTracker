@@ -31,6 +31,7 @@ Features that would be nice to have at some point in the future:
 * Provide a score calculator (e.g. how many games would it take to get to X rank).
 * Add some sort of deck management.
 * Add import from ```.csv```.
+* Add automatic updating.
 
 ## Installation
 
@@ -59,6 +60,8 @@ It was created in Visual Studio 2008 using C#. You can run ```build.bat``` to bu
 You will first want to add some decks (```Add Deck``` panel).
 
 Add games as you play in the ```Add Game``` panel. Hopefully this will be able to automatically do this for you at some point in the future. Number of turns and Notes are optional.
+
+Hover mouse over a game in the list of recent games to view your notes as a tooltip.
 
 Click on the red trash icon in the list of matching games to delete a specific game.
 
