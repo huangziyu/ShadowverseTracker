@@ -499,7 +499,7 @@
             this.Controls.Add(this.panelBrowse);
             this.Controls.Add(this.panelCustomIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = global::IconChanger.Properties.Resources.ic_luna5;
+            this.Icon = System.Drawing.Icon.ExtractAssociatedIcon(FILEPATH);
             this.Name = "MainForm";
             this.Text = "Icon Changer";
             this.panelCustomIcon.ResumeLayout(false);
@@ -509,10 +509,11 @@
             this.panelSave.ResumeLayout(false);
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
+
+        private readonly string FILEPATH = "IconChanger.exe";
 
         private System.Windows.Forms.OpenFileDialog dialogBrowseFile;
         private System.Windows.Forms.Label labelFile;

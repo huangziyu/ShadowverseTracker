@@ -956,7 +956,7 @@ namespace ShadowverseTracker
             this.Controls.Add(this.dataPanel);
             this.Controls.Add(this.buttonpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = global::ShadowverseTracker.Properties.Resources.ic_vampy5;
+            this.Icon = System.Drawing.Icon.ExtractAssociatedIcon(FILEPATH);
             this.Name = "MainWindow";
             this.Text = "Shadowverse Tracker";
             this.buttonpanel.ResumeLayout(false);
@@ -980,6 +980,8 @@ namespace ShadowverseTracker
         }
 
         #endregion
+
+        private readonly string FILEPATH = "ShadowverseTracker.exe";
 
         private System.Windows.Forms.Button buttonAll;
         private System.Windows.Forms.Button buttonForest;
