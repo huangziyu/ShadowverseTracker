@@ -34,7 +34,9 @@ If you want to modify these programs, you can clone this repository and change t
 https://github.com/sleeplessghost/ShadowverseTracker.git
 ```
 
-It was created in Visual Studio 2008 using C#. You can run build.bat to build the solution and copy files to dist folder.
+It was created in Visual Studio 2008 using C#. You can run ```build.bat``` to build the solution and copy files to dist folder.
+
+**Note:** ```build.bat``` requires .NET Framework v4.*
 
 ## Usage
 
