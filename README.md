@@ -30,6 +30,7 @@ Features that would be nice to have at some point in the future:
 * Allow users to sync data to a server.
 * Provide a score calculator (e.g. how many games would it take to get to X rank).
 * Add some sort of deck management.
+* Add import from ```.csv```.
 
 ## Installation
 
@@ -53,11 +54,13 @@ It was created in Visual Studio 2008 using C#. You can run ```build.bat``` to bu
 
 #### Shadowverse Tracker
 
-![Screenshot of Shadowverse Tracker](https://cloud.githubusercontent.com/assets/25903992/23140087/9135a1b2-f7ff-11e6-80fe-d469e27da28a.jpg)
+![Screenshot of Shadowverse Tracker](https://cloud.githubusercontent.com/assets/25903992/23165108/67440976-f88a-11e6-9ce1-30e2034f7dc8.jpg)
 
 You will first want to add some decks (```Add Deck``` panel).
 
-Add games as you play in the ```Add Game``` panel. Hopefully this will be able to automatically do this for you at some point in the future.
+Add games as you play in the ```Add Game``` panel. Hopefully this will be able to automatically do this for you at some point in the future. Number of turns and Notes are optional.
+
+Click on the red trash icon in the list of matching games to delete a specific game.
 
 Click on  ```Wins``` or ```Decks``` or ```Matchups``` in the Data panel to view statistics for your current filtered selection. You can click on the column headers in the Decks/Matchups tables to sort by each column.
 
