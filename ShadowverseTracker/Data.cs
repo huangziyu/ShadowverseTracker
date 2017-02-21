@@ -62,7 +62,9 @@ namespace ShadowverseTracker
                     .Append("Opponent Deck").Append(EXPORTDELIMITER)
                     .Append("Game Mode").Append(EXPORTDELIMITER)
                     .Append("Turn").Append(EXPORTDELIMITER)
-                    .Append("Win/Loss").Append(EXPORTDELIMITER).Append("\r\n");
+                    .Append("Num Turns").Append(EXPORTDELIMITER)
+                    .Append("Win/Loss").Append(EXPORTDELIMITER)
+                    .Append("Notes").Append(EXPORTDELIMITER).Append("\r\n");
                 writer.Write(builder.ToString());
 
                 foreach (Game game in mDataBase.games)
@@ -75,7 +77,9 @@ namespace ShadowverseTracker
                         .Append("\"").Append(getDeckByID(game.opponentDeckID).name.Replace("\"", "")).Append("\"").Append(EXPORTDELIMITER)
                         .Append(game.mode.ToString()).Append(EXPORTDELIMITER)
                         .Append(game.first ? "First" : "Second").Append(EXPORTDELIMITER)
-                        .Append(game.won ? "Win" : "Loss").Append(EXPORTDELIMITER).Append("\r\n");
+                        .Append(game.turns).Append(EXPORTDELIMITER)
+                        .Append(game.won ? "Win" : "Loss").Append(EXPORTDELIMITER)
+                        .Append(game.notes).Append(EXPORTDELIMITER).Append("\r\n");
                     writer.Write(builder.ToString());
                 }
 
@@ -122,9 +126,9 @@ namespace ShadowverseTracker
             saveData();
         }
 
-        public void addGame(Craft playerCraft, Craft opponentCraft, Deck playerDeck, Deck opponentDeck, bool first, Mode mode, bool won)
+        public void addGame(Craft playerCraft, Craft opponentCraft, Deck playerDeck, Deck opponentDeck, bool first, Mode mode, bool won, int numTurns, string notes)
         {
-            Game game = new Game(playerCraft, opponentCraft, playerDeck, opponentDeck, first, mode, won);
+            Game game = new Game(playerCraft, opponentCraft, playerDeck, opponentDeck, first, mode, won, numTurns, notes);
             mDataBase.games.Add(game);
             saveData();
         }

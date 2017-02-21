@@ -48,6 +48,10 @@ namespace ShadowverseTracker
             this.prevGamesLabel = new System.Windows.Forms.Label();
             this.decksPanel = new System.Windows.Forms.Panel();
             this.deckDataGrid = new System.Windows.Forms.DataGridView();
+            this.decksNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deckCraftsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decksGamesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decksWinCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statsPanel = new System.Windows.Forms.Panel();
             this.statsDividerPanel = new System.Windows.Forms.Panel();
             this.bloodWinLabel = new System.Windows.Forms.Label();
@@ -68,12 +72,6 @@ namespace ShadowverseTracker
             this.decksButton = new System.Windows.Forms.Button();
             this.statsButton = new System.Windows.Forms.Button();
             this.prevGamesDataGrid = new System.Windows.Forms.DataGridView();
-            this.craftCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deckCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.opponentCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turnCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelPlayerDeck = new System.Windows.Forms.Label();
             this.playerDeckSelector = new System.Windows.Forms.ComboBox();
             this.addDeckPanel = new System.Windows.Forms.Panel();
@@ -110,10 +108,16 @@ namespace ShadowverseTracker
             this.filtersPanel = new System.Windows.Forms.Panel();
             this.turnSelector = new System.Windows.Forms.ComboBox();
             this.labelTurn = new System.Windows.Forms.Label();
-            this.decksNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deckCraftsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decksGamesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decksWinCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addGameNumTurnsLabel = new System.Windows.Forms.Label();
+            this.addGameNotesText = new System.Windows.Forms.TextBox();
+            this.addGameNotesLabel = new System.Windows.Forms.Label();
+            this.addGameNumTurnsSelector = new System.Windows.Forms.NumericUpDown();
+            this.craftCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deckCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.opponentCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turnCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonpanel.SuspendLayout();
             this.dataPanel.SuspendLayout();
             this.decksPanel.SuspendLayout();
@@ -125,6 +129,7 @@ namespace ShadowverseTracker
             this.addDeckPanel.SuspendLayout();
             this.addGamePanel.SuspendLayout();
             this.filtersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addGameNumTurnsSelector)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonpanel
@@ -283,6 +288,42 @@ namespace ShadowverseTracker
             this.deckDataGrid.RowHeadersVisible = false;
             this.deckDataGrid.Size = new System.Drawing.Size(476, 206);
             this.deckDataGrid.TabIndex = 0;
+            // 
+            // decksNameCol
+            // 
+            this.decksNameCol.HeaderText = "Deck";
+            this.decksNameCol.MinimumWidth = 250;
+            this.decksNameCol.Name = "decksNameCol";
+            this.decksNameCol.ReadOnly = true;
+            this.decksNameCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.decksNameCol.Width = 250;
+            // 
+            // deckCraftsCol
+            // 
+            this.deckCraftsCol.HeaderText = "Craft";
+            this.deckCraftsCol.MinimumWidth = 85;
+            this.deckCraftsCol.Name = "deckCraftsCol";
+            this.deckCraftsCol.ReadOnly = true;
+            this.deckCraftsCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deckCraftsCol.Width = 85;
+            // 
+            // decksGamesCol
+            // 
+            this.decksGamesCol.HeaderText = "Games";
+            this.decksGamesCol.MinimumWidth = 60;
+            this.decksGamesCol.Name = "decksGamesCol";
+            this.decksGamesCol.ReadOnly = true;
+            this.decksGamesCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.decksGamesCol.Width = 60;
+            // 
+            // decksWinCol
+            // 
+            this.decksWinCol.HeaderText = "Win %";
+            this.decksWinCol.MinimumWidth = 60;
+            this.decksWinCol.Name = "decksWinCol";
+            this.decksWinCol.ReadOnly = true;
+            this.decksWinCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.decksWinCol.Width = 60;
             // 
             // statsPanel
             // 
@@ -492,71 +533,6 @@ namespace ShadowverseTracker
             this.prevGamesDataGrid.Size = new System.Drawing.Size(555, 243);
             this.prevGamesDataGrid.TabIndex = 0;
             // 
-            // craftCol
-            // 
-            this.craftCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.craftCol.HeaderText = "Craft";
-            this.craftCol.MinimumWidth = 91;
-            this.craftCol.Name = "craftCol";
-            this.craftCol.ReadOnly = true;
-            this.craftCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.craftCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.craftCol.Width = 91;
-            // 
-            // deckCol
-            // 
-            this.deckCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.deckCol.HeaderText = "Deck";
-            this.deckCol.MinimumWidth = 123;
-            this.deckCol.Name = "deckCol";
-            this.deckCol.ReadOnly = true;
-            this.deckCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deckCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.deckCol.Width = 123;
-            // 
-            // opponentCol
-            // 
-            this.opponentCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.opponentCol.HeaderText = "Opponent";
-            this.opponentCol.MinimumWidth = 91;
-            this.opponentCol.Name = "opponentCol";
-            this.opponentCol.ReadOnly = true;
-            this.opponentCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.opponentCol.Width = 91;
-            // 
-            // modeCol
-            // 
-            this.modeCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.modeCol.HeaderText = "Mode";
-            this.modeCol.MinimumWidth = 85;
-            this.modeCol.Name = "modeCol";
-            this.modeCol.ReadOnly = true;
-            this.modeCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.modeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.modeCol.Width = 85;
-            // 
-            // turnCol
-            // 
-            this.turnCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.turnCol.HeaderText = "Turn";
-            this.turnCol.MinimumWidth = 80;
-            this.turnCol.Name = "turnCol";
-            this.turnCol.ReadOnly = true;
-            this.turnCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.turnCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.turnCol.Width = 80;
-            // 
-            // resultCol
-            // 
-            this.resultCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.resultCol.HeaderText = "Result";
-            this.resultCol.MinimumWidth = 80;
-            this.resultCol.Name = "resultCol";
-            this.resultCol.ReadOnly = true;
-            this.resultCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.resultCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.resultCol.Width = 80;
-            // 
             // labelPlayerDeck
             // 
             this.labelPlayerDeck.AutoSize = true;
@@ -643,7 +619,11 @@ namespace ShadowverseTracker
             // 
             // addGamePanel
             // 
+            this.addGamePanel.Controls.Add(this.addGameNumTurnsSelector);
+            this.addGamePanel.Controls.Add(this.addGameNotesText);
+            this.addGamePanel.Controls.Add(this.addGameNotesLabel);
             this.addGamePanel.Controls.Add(this.addGameTakeTwoBtn);
+            this.addGamePanel.Controls.Add(this.addGameNumTurnsLabel);
             this.addGamePanel.Controls.Add(this.addGameUnrankedBtn);
             this.addGamePanel.Controls.Add(this.addGameRankedBtn);
             this.addGamePanel.Controls.Add(this.addGameFirstBtn);
@@ -668,7 +648,7 @@ namespace ShadowverseTracker
             // addGameTakeTwoBtn
             // 
             this.addGameTakeTwoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameTakeTwoBtn.Location = new System.Drawing.Point(166, 258);
+            this.addGameTakeTwoBtn.Location = new System.Drawing.Point(166, 291);
             this.addGameTakeTwoBtn.Name = "addGameTakeTwoBtn";
             this.addGameTakeTwoBtn.Size = new System.Drawing.Size(82, 37);
             this.addGameTakeTwoBtn.TabIndex = 20;
@@ -677,7 +657,7 @@ namespace ShadowverseTracker
             // addGameUnrankedBtn
             // 
             this.addGameUnrankedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameUnrankedBtn.Location = new System.Drawing.Point(84, 258);
+            this.addGameUnrankedBtn.Location = new System.Drawing.Point(84, 291);
             this.addGameUnrankedBtn.Name = "addGameUnrankedBtn";
             this.addGameUnrankedBtn.Size = new System.Drawing.Size(82, 37);
             this.addGameUnrankedBtn.TabIndex = 19;
@@ -686,7 +666,7 @@ namespace ShadowverseTracker
             // addGameRankedBtn
             // 
             this.addGameRankedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameRankedBtn.Location = new System.Drawing.Point(2, 258);
+            this.addGameRankedBtn.Location = new System.Drawing.Point(2, 291);
             this.addGameRankedBtn.Name = "addGameRankedBtn";
             this.addGameRankedBtn.Size = new System.Drawing.Size(82, 37);
             this.addGameRankedBtn.TabIndex = 18;
@@ -696,7 +676,7 @@ namespace ShadowverseTracker
             // 
             this.addGameFirstBtn.BackColor = System.Drawing.SystemColors.Control;
             this.addGameFirstBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameFirstBtn.Location = new System.Drawing.Point(12, 195);
+            this.addGameFirstBtn.Location = new System.Drawing.Point(12, 245);
             this.addGameFirstBtn.Name = "addGameFirstBtn";
             this.addGameFirstBtn.Size = new System.Drawing.Size(109, 37);
             this.addGameFirstBtn.TabIndex = 17;
@@ -706,7 +686,7 @@ namespace ShadowverseTracker
             // addGameSecondBtn
             // 
             this.addGameSecondBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameSecondBtn.Location = new System.Drawing.Point(121, 195);
+            this.addGameSecondBtn.Location = new System.Drawing.Point(121, 245);
             this.addGameSecondBtn.Name = "addGameSecondBtn";
             this.addGameSecondBtn.Size = new System.Drawing.Size(118, 37);
             this.addGameSecondBtn.TabIndex = 16;
@@ -724,7 +704,7 @@ namespace ShadowverseTracker
             // addGameLoseBtn
             // 
             this.addGameLoseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameLoseBtn.Location = new System.Drawing.Point(13, 322);
+            this.addGameLoseBtn.Location = new System.Drawing.Point(13, 338);
             this.addGameLoseBtn.Name = "addGameLoseBtn";
             this.addGameLoseBtn.Size = new System.Drawing.Size(108, 37);
             this.addGameLoseBtn.TabIndex = 15;
@@ -733,7 +713,7 @@ namespace ShadowverseTracker
             // addGameWinBtn
             // 
             this.addGameWinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addGameWinBtn.Location = new System.Drawing.Point(121, 322);
+            this.addGameWinBtn.Location = new System.Drawing.Point(121, 338);
             this.addGameWinBtn.Name = "addGameWinBtn";
             this.addGameWinBtn.Size = new System.Drawing.Size(118, 37);
             this.addGameWinBtn.TabIndex = 14;
@@ -909,41 +889,107 @@ namespace ShadowverseTracker
             this.labelTurn.TabIndex = 20;
             this.labelTurn.Text = "Turn:";
             // 
-            // decksNameCol
+            // addGameNumTurnsLabel
             // 
-            this.decksNameCol.HeaderText = "Deck";
-            this.decksNameCol.MinimumWidth = 250;
-            this.decksNameCol.Name = "decksNameCol";
-            this.decksNameCol.ReadOnly = true;
-            this.decksNameCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.decksNameCol.Width = 250;
+            this.addGameNumTurnsLabel.AutoSize = true;
+            this.addGameNumTurnsLabel.Location = new System.Drawing.Point(9, 176);
+            this.addGameNumTurnsLabel.Name = "addGameNumTurnsLabel";
+            this.addGameNumTurnsLabel.Size = new System.Drawing.Size(62, 13);
+            this.addGameNumTurnsLabel.TabIndex = 6;
+            this.addGameNumTurnsLabel.Text = "Num Turns:";
             // 
-            // deckCraftsCol
+            // addGameNotesText
             // 
-            this.deckCraftsCol.HeaderText = "Craft";
-            this.deckCraftsCol.MinimumWidth = 85;
-            this.deckCraftsCol.Name = "deckCraftsCol";
-            this.deckCraftsCol.ReadOnly = true;
-            this.deckCraftsCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deckCraftsCol.Width = 85;
+            this.addGameNotesText.Location = new System.Drawing.Point(82, 199);
+            this.addGameNotesText.Name = "addGameNotesText";
+            this.addGameNotesText.Size = new System.Drawing.Size(157, 20);
+            this.addGameNotesText.TabIndex = 22;
             // 
-            // decksGamesCol
+            // addGameNotesLabel
             // 
-            this.decksGamesCol.HeaderText = "Games";
-            this.decksGamesCol.MinimumWidth = 60;
-            this.decksGamesCol.Name = "decksGamesCol";
-            this.decksGamesCol.ReadOnly = true;
-            this.decksGamesCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.decksGamesCol.Width = 60;
+            this.addGameNotesLabel.AutoSize = true;
+            this.addGameNotesLabel.Location = new System.Drawing.Point(9, 202);
+            this.addGameNotesLabel.Name = "addGameNotesLabel";
+            this.addGameNotesLabel.Size = new System.Drawing.Size(38, 13);
+            this.addGameNotesLabel.TabIndex = 21;
+            this.addGameNotesLabel.Text = "Notes:";
             // 
-            // decksWinCol
+            // addGameNumTurnsSelector
             // 
-            this.decksWinCol.HeaderText = "Win %";
-            this.decksWinCol.MinimumWidth = 60;
-            this.decksWinCol.Name = "decksWinCol";
-            this.decksWinCol.ReadOnly = true;
-            this.decksWinCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.decksWinCol.Width = 60;
+            this.addGameNumTurnsSelector.Location = new System.Drawing.Point(82, 173);
+            this.addGameNumTurnsSelector.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.addGameNumTurnsSelector.Name = "addGameNumTurnsSelector";
+            this.addGameNumTurnsSelector.Size = new System.Drawing.Size(157, 20);
+            this.addGameNumTurnsSelector.TabIndex = 23;
+            // 
+            // craftCol
+            // 
+            this.craftCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.craftCol.HeaderText = "Craft";
+            this.craftCol.MinimumWidth = 91;
+            this.craftCol.Name = "craftCol";
+            this.craftCol.ReadOnly = true;
+            this.craftCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.craftCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.craftCol.Width = 91;
+            // 
+            // deckCol
+            // 
+            this.deckCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.deckCol.HeaderText = "Deck";
+            this.deckCol.MinimumWidth = 123;
+            this.deckCol.Name = "deckCol";
+            this.deckCol.ReadOnly = true;
+            this.deckCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deckCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.deckCol.Width = 123;
+            // 
+            // opponentCol
+            // 
+            this.opponentCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.opponentCol.HeaderText = "Opponent";
+            this.opponentCol.MinimumWidth = 91;
+            this.opponentCol.Name = "opponentCol";
+            this.opponentCol.ReadOnly = true;
+            this.opponentCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.opponentCol.Width = 91;
+            // 
+            // modeCol
+            // 
+            this.modeCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.modeCol.HeaderText = "Mode";
+            this.modeCol.MinimumWidth = 85;
+            this.modeCol.Name = "modeCol";
+            this.modeCol.ReadOnly = true;
+            this.modeCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.modeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.modeCol.Width = 85;
+            // 
+            // turnCol
+            // 
+            this.turnCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.turnCol.HeaderText = "Turn (Num)";
+            this.turnCol.MinimumWidth = 80;
+            this.turnCol.Name = "turnCol";
+            this.turnCol.ReadOnly = true;
+            this.turnCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.turnCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.turnCol.Width = 80;
+            // 
+            // resultCol
+            // 
+            this.resultCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.resultCol.HeaderText = "Result";
+            this.resultCol.MinimumWidth = 80;
+            this.resultCol.Name = "resultCol";
+            this.resultCol.ReadOnly = true;
+            this.resultCol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.resultCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.resultCol.Width = 80;
             // 
             // MainWindow
             // 
@@ -956,7 +1002,6 @@ namespace ShadowverseTracker
             this.Controls.Add(this.dataPanel);
             this.Controls.Add(this.buttonpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = System.Drawing.Icon.ExtractAssociatedIcon(FILEPATH);
             this.Name = "MainWindow";
             this.Text = "Shadowverse Tracker";
             this.buttonpanel.ResumeLayout(false);
@@ -975,6 +1020,7 @@ namespace ShadowverseTracker
             this.addGamePanel.PerformLayout();
             this.filtersPanel.ResumeLayout(false);
             this.filtersPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addGameNumTurnsSelector)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1049,12 +1095,6 @@ namespace ShadowverseTracker
         private DataGridView matchupsDataGrid;
         private ComboBox turnSelector;
         private Label labelTurn;
-        private DataGridViewTextBoxColumn craftCol;
-        private DataGridViewTextBoxColumn deckCol;
-        private DataGridViewTextBoxColumn opponentCol;
-        private DataGridViewTextBoxColumn modeCol;
-        private DataGridViewTextBoxColumn turnCol;
-        private DataGridViewTextBoxColumn resultCol;
         private Button exportButton;
         private DataGridViewTextBoxColumn matchupsNameCol;
         private DataGridViewTextBoxColumn matchupsCraftCol;
@@ -1064,5 +1104,15 @@ namespace ShadowverseTracker
         private DataGridViewTextBoxColumn deckCraftsCol;
         private DataGridViewTextBoxColumn decksGamesCol;
         private DataGridViewTextBoxColumn decksWinCol;
+        private TextBox addGameNotesText;
+        private Label addGameNotesLabel;
+        private Label addGameNumTurnsLabel;
+        private NumericUpDown addGameNumTurnsSelector;
+        private DataGridViewTextBoxColumn craftCol;
+        private DataGridViewTextBoxColumn deckCol;
+        private DataGridViewTextBoxColumn opponentCol;
+        private DataGridViewTextBoxColumn modeCol;
+        private DataGridViewTextBoxColumn turnCol;
+        private DataGridViewTextBoxColumn resultCol;
     }
 }

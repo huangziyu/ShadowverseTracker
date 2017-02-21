@@ -9,9 +9,6 @@ if exist C:\Windows\Microsoft.NET\Framework\v4.* (
 	for /d %%a in ("C:\Windows\Microsoft.NET\Framework\v4.*") do (
 		set "file=%%~fa\msbuild.exe"
 	)
-	echo on
-	echo !file!
-	echo off
 	if exist !file! (
 		echo on
 		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ShadowverseTracker.sln

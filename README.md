@@ -28,7 +28,6 @@ Features that would be nice to have at some point in the future:
 * Automatically read data from Shadowverse so games don't need to be manually enterred.
 * Create a version for Android/iOS.
 * Allow users to sync data to a server.
-* Allow users to record notes and number of turns to games.
 * Provide a score calculator (e.g. how many games would it take to get to X rank).
 
 ## Installation

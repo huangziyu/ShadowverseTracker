@@ -349,9 +349,16 @@ namespace ShadowverseTracker
                                        mData.getDeckByID(curGame.playerDeckID).name,
                                        getCraftName(curGame.opponentCraft),
                                        curGame.mode.ToString(),
-                                       curGame.first ? "First" : "Second",
+                                       (curGame.first ? "First" : "Second") + (curGame.turns == 0 ? "" : " ("+curGame.turns+"}"),
                                        curGame.won ? "Won" : "Lost" };
                     prevGamesDataGrid.Rows.Add(row);
+                    if (curGame.notes != null && curGame.notes.Length > 0)
+                    {
+                        foreach (DataGridViewCell cell in prevGamesDataGrid.Rows[i].Cells)
+                        {
+                            cell.ToolTipText = "Note: " + curGame.notes;
+                        }
+                    }
                 }
             }
         }
@@ -446,7 +453,11 @@ namespace ShadowverseTracker
                     Craft opponent = getCraftFromIndex(opponentCraft);
                     Deck pDeck = mGamePlayerDecks[selectedDeck];
                     Deck oDeck = mGameOpponentDecks[opponentDeck];
-                    mData.addGame(mGameSelectedCraft, mGameOpponentCraft, pDeck, oDeck, mGameFirstSelected, mGameModeSelected, mGameWonSelected);
+                    int numTurns = Convert.ToInt32(addGameNumTurnsSelector.Value);
+                    string notes = addGameNotesText.Text;
+                    mData.addGame(mGameSelectedCraft, mGameOpponentCraft, pDeck, oDeck, mGameFirstSelected, mGameModeSelected, mGameWonSelected, numTurns, notes == null ? "" : notes);
+                    addGameNumTurnsSelector.Value = 0;
+                    addGameNotesText.Text = "";
                     updateGames();
                 }
                 catch (Exception x)
@@ -901,6 +912,18 @@ namespace ShadowverseTracker
                     control.ForeColor = COLOR_BEIGE;
                     ((ComboBox)control).FlatStyle = FlatStyle.Flat;
                     ((ComboBox)control).Font = defFont;
+                }
+                else if (control is TextBox)
+                {
+                    control.BackColor = COLOR_LIGHT_BLUE;
+                    control.ForeColor = COLOR_BEIGE;
+                    control.Font = defFont;
+                }
+                else if (control is NumericUpDown)
+                {
+                    control.BackColor = COLOR_LIGHT_BLUE;
+                    control.ForeColor = COLOR_BEIGE;
+                    control.Font = defFont;
                 }
                 else if (control is Button)
                 {

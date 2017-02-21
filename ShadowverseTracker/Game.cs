@@ -14,13 +14,15 @@ namespace ShadowverseTracker
         private bool mFirst;
         private Mode mGameMode;
         private bool mWon;
+        private int mNumTurns = 0;
+        private string mNotes = "";
 
         public Game()
         {
             //needed for XmlSerializer, do not use
         }
 
-        public Game(Craft player, Craft opponent, Deck playerDeck, Deck opponentDeck, bool first, Mode mode, bool won)
+        public Game(Craft player, Craft opponent, Deck playerDeck, Deck opponentDeck, bool first, Mode mode, bool won, int numTurns, string notes)
         {
             this.mPlayerCraft = player;
             this.mOpponentCraft = opponent;
@@ -29,6 +31,8 @@ namespace ShadowverseTracker
             this.mFirst = first;
             this.mGameMode = mode;
             this.mWon = won;
+            this.mNumTurns = numTurns;
+            this.mNotes = notes;
         }
 
         public Craft playerCraft
@@ -112,6 +116,30 @@ namespace ShadowverseTracker
             set
             {
                 mWon = value;
+            }
+        }
+
+        public int turns
+        {
+            get
+            {
+                return mNumTurns;
+            }
+            set
+            {
+                mNumTurns = value;
+            }
+        }
+
+        public string notes
+        {
+            get
+            {
+                return mNotes;
+            }
+            set
+            {
+                mNotes = value;
             }
         }
     }
