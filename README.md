@@ -30,7 +30,6 @@ Features that would be nice to have at some point in the future:
 * Allow users to sync data to a server.
 * Provide a score calculator (e.g. how many games would it take to get to X rank).
 * Add some sort of deck management.
-* Allow users to delete games from recent games list.
 
 ## Installation
 
