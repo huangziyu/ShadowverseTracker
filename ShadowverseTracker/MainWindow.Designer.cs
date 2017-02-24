@@ -119,6 +119,8 @@ namespace ShadowverseTracker
             this.filtersPanel = new System.Windows.Forms.Panel();
             this.turnSelector = new System.Windows.Forms.ComboBox();
             this.labelTurn = new System.Windows.Forms.Label();
+            this.firstWinNumLabel = new System.Windows.Forms.Label();
+            this.secondWinNumLabel = new System.Windows.Forms.Label();
             this.buttonpanel.SuspendLayout();
             this.dataPanel.SuspendLayout();
             this.decksPanel.SuspendLayout();
@@ -328,6 +330,8 @@ namespace ShadowverseTracker
             // 
             // statsPanel
             // 
+            this.statsPanel.Controls.Add(this.secondWinNumLabel);
+            this.statsPanel.Controls.Add(this.firstWinNumLabel);
             this.statsPanel.Controls.Add(this.statsDividerPanel);
             this.statsPanel.Controls.Add(this.bloodWinLabel);
             this.statsPanel.Controls.Add(this.runeWinLabel);
@@ -416,16 +420,16 @@ namespace ShadowverseTracker
             // hintLabel
             // 
             this.hintLabel.AutoSize = true;
-            this.hintLabel.Location = new System.Drawing.Point(173, 19);
+            this.hintLabel.Location = new System.Drawing.Point(4, 6);
             this.hintLabel.Name = "hintLabel";
-            this.hintLabel.Size = new System.Drawing.Size(114, 13);
+            this.hintLabel.Size = new System.Drawing.Size(159, 13);
             this.hintLabel.TabIndex = 1;
-            this.hintLabel.Text = "(Total Games / Win %)";
+            this.hintLabel.Text = "Statistics (Total Games / Win %)";
             // 
             // totalWinNumLabel
             // 
             this.totalWinNumLabel.AutoSize = true;
-            this.totalWinNumLabel.Location = new System.Drawing.Point(4, 20);
+            this.totalWinNumLabel.Location = new System.Drawing.Point(4, 29);
             this.totalWinNumLabel.Name = "totalWinNumLabel";
             this.totalWinNumLabel.Size = new System.Drawing.Size(37, 13);
             this.totalWinNumLabel.TabIndex = 0;
@@ -1003,6 +1007,24 @@ namespace ShadowverseTracker
             this.labelTurn.TabIndex = 20;
             this.labelTurn.Text = "Turn:";
             // 
+            // firstWinNumLabel
+            // 
+            this.firstWinNumLabel.AutoSize = true;
+            this.firstWinNumLabel.Location = new System.Drawing.Point(165, 29);
+            this.firstWinNumLabel.Name = "firstWinNumLabel";
+            this.firstWinNumLabel.Size = new System.Drawing.Size(29, 13);
+            this.firstWinNumLabel.TabIndex = 10;
+            this.firstWinNumLabel.Text = "First:";
+            // 
+            // secondWinNumLabel
+            // 
+            this.secondWinNumLabel.AutoSize = true;
+            this.secondWinNumLabel.Location = new System.Drawing.Point(323, 29);
+            this.secondWinNumLabel.Name = "secondWinNumLabel";
+            this.secondWinNumLabel.Size = new System.Drawing.Size(47, 13);
+            this.secondWinNumLabel.TabIndex = 11;
+            this.secondWinNumLabel.Text = "Second:";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1128,5 +1150,7 @@ namespace ShadowverseTracker
         private DataGridViewTextBoxColumn turnCol;
         private DataGridViewTextBoxColumn resultCol;
         private DataGridViewImageColumn deleteCol;
+        private Label secondWinNumLabel;
+        private Label firstWinNumLabel;
     }
 }

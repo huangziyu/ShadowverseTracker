@@ -222,6 +222,10 @@ namespace ShadowverseTracker
             DeckStat matchStat;
             long totalGames = 0;
             double totalWins = 0;
+            long firstGames = 0;
+            double firstWins = 0;
+            long secondGames = 0;
+            double secondWins = 0;
             long forestGames = 0;
             double forestWins = 0;
             long swordGames = 0;
@@ -255,11 +259,15 @@ namespace ShadowverseTracker
                 totalGames++;
                 stat.games++;
                 matchStat.games++;
+                if (game.first) firstGames++;
+                else secondGames++;
                 if (game.won)
                 {
                     totalWins++;
                     stat.wins++;
                     matchStat.wins++;
+                    if (game.first) firstWins++;
+                    else secondWins++;
                 }
                 decks.Add(deckID, stat);
                 matchups.Add(oppID, matchStat);
@@ -300,6 +308,8 @@ namespace ShadowverseTracker
                 }
             }
             totalWinNumLabel.Text = String.Format("Total: {0} / {1:0.00}%", totalGames, totalWins / totalGames * 100);
+            firstWinNumLabel.Text = String.Format("First: {0} / {1:0.00}%", firstGames, firstWins / firstGames * 100);
+            secondWinNumLabel.Text = String.Format("Second: {0} / {1:0.00}%", secondGames, secondWins / secondGames * 100);
             forestWinLabel.Text = String.Format("vs Forestcraft: {0} / {1:0.00}%", forestGames, forestWins / forestGames * 100);
             swordWinLabel.Text = String.Format("vs Swordcraft: {0} / {1:0.00}%", swordGames, swordWins / swordGames * 100);
             runeWinLabel.Text = String.Format("vs Runecraft: {0} / {1:0.00}%", runeGames, runeWins / runeGames * 100);
