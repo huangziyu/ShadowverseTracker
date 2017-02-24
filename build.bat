@@ -11,7 +11,7 @@ if exist C:\Windows\Microsoft.NET\Framework\v4.* (
 	)
 	if exist !file! (
 		echo on
-		C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ShadowverseTracker.sln
+		!file! ShadowverseTracker.sln
 		echo finished compiling
 		copy ShadowverseTracker\obj\debug\ShadowverseTracker.exe dist
 		copy IconChanger\obj\debug\IconChanger.exe dist

@@ -300,13 +300,13 @@ namespace ShadowverseTracker
                 }
             }
             totalWinNumLabel.Text = String.Format("Total: {0} / {1:0.00}%", totalGames, totalWins / totalGames * 100);
-            forestWinLabel.Text = String.Format("Forestcraft: {0} / {1:0.00}%", forestGames, forestWins / forestGames * 100);
-            swordWinLabel.Text = String.Format("Swordcraft: {0} / {1:0.00}%", swordGames, swordWins / swordGames * 100);
-            runeWinLabel.Text = String.Format("Runecraft: {0} / {1:0.00}%", runeGames, runeWins / runeGames * 100);
-            dragonWinLabel.Text = String.Format("Dragoncraft: {0} / {1:0.00}%", dragonGames, dragonWins / dragonGames * 100);
-            shadowWinLabel.Text = String.Format("Shadowcraft: {0} / {1:0.00}%", shadowGames, shadowWins / shadowGames * 100);
-            bloodWinLabel.Text = String.Format("Bloodcraft: {0} / {1:0.00}%", bloodGames, bloodWins / bloodGames * 100);
-            havenWinLabel.Text = String.Format("Havencraft: {0} / {1:0.00}%", havenGames, havenWins / havenGames * 100);
+            forestWinLabel.Text = String.Format("vs Forestcraft: {0} / {1:0.00}%", forestGames, forestWins / forestGames * 100);
+            swordWinLabel.Text = String.Format("vs Swordcraft: {0} / {1:0.00}%", swordGames, swordWins / swordGames * 100);
+            runeWinLabel.Text = String.Format("vs Runecraft: {0} / {1:0.00}%", runeGames, runeWins / runeGames * 100);
+            dragonWinLabel.Text = String.Format("vs Dragoncraft: {0} / {1:0.00}%", dragonGames, dragonWins / dragonGames * 100);
+            shadowWinLabel.Text = String.Format("vs Shadowcraft: {0} / {1:0.00}%", shadowGames, shadowWins / shadowGames * 100);
+            bloodWinLabel.Text = String.Format("vs Bloodcraft: {0} / {1:0.00}%", bloodGames, bloodWins / bloodGames * 100);
+            havenWinLabel.Text = String.Format("vs Havencraft: {0} / {1:0.00}%", havenGames, havenWins / havenGames * 100);
 
             //decks
             deckDataGrid.Rows.Clear();
